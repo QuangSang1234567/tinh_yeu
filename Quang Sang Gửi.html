@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gửi chị 💌</title>
+
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        text-align: center;
+        background: white;
+        padding: 25px;
+        border-radius: 20px;
+        width: 90%;
+        max-width: 400px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      .message {
+        min-height: 120px;
+        white-space: pre-line;
+      }
+
+      button {
+        padding: 12px 20px;
+        border-radius: 25px;
+        border: none;
+        margin-top: 15px;
+      }
+
+      .yes {
+        background: #e91e63;
+        color: white;
+      }
+
+      .no {
+        background: #ccc;
+        position: fixed;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Anh có điều muốn nói...</h2>
+      <p id="text" class="message"></p>
+
+      <button class="yes" id="yesBtn">Chịu chết 😔</button>
+      <button class="no" id="noBtn">Đồng ý 💖</button>
+    </div>
+
+    <script>
+      window.onload = function () {
+        // ===== TEXT CHẠY =====
+        const content = `Anh không phải kiểu người dễ rung động...
+
+nhưng từ lúc gặp chị,
+mọi thứ trong anh dường như thay đổi.
+
+Chị không cần phải hoàn hảo,
+chỉ cần là chị thôi...
+
+cũng đủ khiến anh muốn nghiêm túc
+bước vào cuộc sống của chị rồi.`;
+
+        let i = 0;
+        const textEl = document.getElementById("text");
+
+        function typeWriter() {
+          if (i < content.length) {
+            textEl.innerHTML += content.charAt(i);
+            i++;
+            setTimeout(typeWriter, 30);
+          }
+        }
+
+        typeWriter();
+
+        // ===== NÚT CHẠY =====
+        const noBtn = document.getElementById("noBtn");
+
+        function moveButton() {
+          const maxX = window.innerWidth - noBtn.offsetWidth;
+          const maxY = window.innerHeight - noBtn.offsetHeight;
+
+          const x = Math.random() * maxX;
+          const y = Math.random() * maxY;
+
+          noBtn.style.left = x + "px";
+          noBtn.style.top = y + "px";
+        }
+
+        // mobile + pc đều chạy
+        noBtn.addEventListener("touchstart", moveButton);
+        noBtn.addEventListener("mouseenter", moveButton);
+
+        // ===== NÚT CHỊU CHẾT =====
+        document.getElementById("yesBtn").onclick = function () {
+          textEl.innerHTML = `
+Thôi được rồi...
+
+Anh thua rồi 😔
+
+Nhưng mà...
+anh vẫn thích chị 😢💔
+    `;
+        };
+      };
+    </script>
+  </body>
+</html>
