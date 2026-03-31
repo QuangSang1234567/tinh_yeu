@@ -59,10 +59,11 @@
       <button class="no" id="noBtn">Đồng ý 💖</button>
     </div>
 
-    <script>
-      window.onload = function () {
-        // ===== TEXT CHẠY =====
-        const content = `Anh không nghĩ sẽ có ngày này...
+   <script>
+window.onload = function () {
+
+  // ===== TEXT BAN ĐẦU =====
+  const content = `Anh không nghĩ sẽ có ngày này...
 
 ngày mà em thuộc về một người khác.
 
@@ -76,40 +77,41 @@ Nhưng cuối cùng...
 
 anh vẫn là người đến sau.`;
 
-        let i = 0;
-        const textEl = document.getElementById("text");
+  let i = 0;
+  const textEl = document.getElementById("text");
 
-        function typeWriter() {
-          if (i < content.length) {
-            textEl.innerHTML += content.charAt(i);
-            i++;
-            setTimeout(typeWriter, 30);
-          }
-        }
+  function typeWriter() {
+    if (i < content.length) {
+      textEl.innerHTML += content.charAt(i);
+      i++;
+      setTimeout(typeWriter, 30);
+    }
+  }
 
-        typeWriter();
+  typeWriter();
 
-        // ===== NÚT CHẠY =====
-        const noBtn = document.getElementById("noBtn");
+  // ===== NÚT "ĐỒNG Ý" CHẠY TRỐN =====
+  const noBtn = document.getElementById("noBtn");
 
-        function moveButton() {
-          const maxX = window.innerWidth - noBtn.offsetWidth;
-          const maxY = window.innerHeight - noBtn.offsetHeight;
+  function moveButton() {
+    const maxX = window.innerWidth - noBtn.offsetWidth;
+    const maxY = window.innerHeight - noBtn.offsetHeight;
 
-          const x = Math.random() * maxX;
-          const y = Math.random() * maxY;
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
 
-          noBtn.style.left = x + "px";
-          noBtn.style.top = y + "px";
-        }
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+  }
 
-        // mobile + pc đều chạy
-        noBtn.addEventListener("touchstart", moveButton);
-        noBtn.addEventListener("mouseenter", moveButton);
+  noBtn.addEventListener("touchstart", moveButton);
+  noBtn.addEventListener("mouseenter", moveButton);
 
-        // ===== NÚT CHỊU CHẾT =====
-        document.getElementById("yesBtn").onclick = function () {
-         const content = `Anh từng nghĩ...
+  // ===== NÚT "CHỊU CHẾT" =====
+  const yesBtn = document.getElementById("yesBtn");
+
+  yesBtn.onclick = function () {
+    textEl.innerHTML = `Anh từng nghĩ...
 
 chỉ cần mình đủ chân thành,
 thì mọi chuyện sẽ khác.
@@ -120,9 +122,13 @@ Nhưng có lẽ...
 quan trọng hơn đúng thời điểm.
 
 Và anh...
-không phải là người em chọn.`;
-        };
-      };
-    </script>
+không phải là người em chọn. 😔💔`;
+
+    // ẩn nút sau khi bấm
+    document.querySelector(".buttons")?.remove();
+  };
+
+};
+</script>
   </body>
 </html>
