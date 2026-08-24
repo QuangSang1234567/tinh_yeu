@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#ff5f8f">
+  <title>💌 Gửi riêng một cô gái</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="bg-glow"></div>
+  <div id="petals"></div>
+  <canvas id="confetti"></canvas>
+
+  <main class="phone-frame">
+    <!-- 1. XÁC MINH CÔ GÁI -->
+    <section class="screen active" id="screen1">
+      <div class="card identity-card">
+        <div class="badge">PRIVATE MESSAGE • 01/05</div>
+        <div class="photo-wrap">
+          <img src="images/ngoc_hien.jpg" alt="Cô gái đặc biệt" id="girlPhoto">
+          <div class="photo-fallback">🌷</div>
+        </div>
+        <p class="small-title">ANH MUỐN CHẮC CHẮN...</p>
+        <h1>Đúng là <span>em</span> chứ? ❤️</h1>
+        <p class="desc">Nếu đúng là cô gái trong bức ảnh này, hãy bước vào nhé. Anh có vài điều muốn nói nhỏ vào tai em.</p>
+        <button class="btn primary" onclick="verifyGirl()">ĐÚNG LÀ EM 💌</button>
+        <p id="verifyText" class="tiny"></p>
+      </div>
+    </section>
+
+    <!-- 2. GÓT MẬT -->
+    <section class="screen" id="screen2">
+      <div class="card">
+        <div class="badge">JUST FOR YOU • 02/05</div>
+        <div class="rose">🌹</div>
+        <p class="small-title">NÓI NHỎ THÔI...</p>
+        <h2>Em có biết không?</h2>
+        <div class="sweet-box">
+          <p id="sweetText">Có những người chẳng cần làm gì đặc biệt...</p>
+        </div>
+        <button class="btn primary" onclick="nextSweet()">NÓI TIẾP ĐI... 🤭</button>
+        <p class="tiny" id="sweetHint">Anh còn vài câu chưa dám nói.</p>
+      </div>
+    </section>
+
+    <!-- 3. TÁN NHẸ + MỜI ĐI CHƠI -->
+    <section class="screen" id="screen3">
+      <div class="card">
+        <div class="badge">ANH HỎI THẬT • 03/05</div>
+        <div class="emoji">☕</div>
+        <p class="small-title">MỘT LỜI MỜI</p>
+        <h2>Nếu anh mời em<br><span>đi một buổi hẹn</span>...</h2>
+        <p class="desc">Một ly trà sữa, một cốc cà phê, hoặc chỉ cần cùng em đi dạo một đoạn. Anh chọn địa điểm, em chọn ngày. 😌</p>
+        <div class="choices">
+          <button class="btn primary" onclick="acceptDate()">ĐI CHỨ ❤️</button>
+          <button class="btn soft" onclick="maybeDate()">ĐỂ EM NGHĨ 🤭</button>
+        </div>
+        <p class="tiny" id="dateText"></p>
+      </div>
+    </section>
+
+    <!-- 4. TỎ TÌNH -->
+    <section class="screen" id="screen4">
+      <div class="card">
+        <div class="badge">ĐIỀU ANH MUỐN NÓI • 04/05</div>
+        <div class="emoji">💗</div>
+        <p class="small-title">NÓI THẬT LÒNG</p>
+        <h2>Cho anh một cơ hội<br><span>được theo đuổi em nhé?</span></h2>
+        <p class="letter">
+          Anh không hứa mình hoàn hảo. Anh chỉ hứa sẽ nghiêm túc tìm hiểu em,
+          lắng nghe em, làm em cười và để em được là chính mình.
+        </p>
+        <p class="whisper">“Nếu em cho anh một cơ hội, anh sẽ cố làm những ngày bình thường của em trở nên đáng nhớ hơn.”</p>
+        <div class="choices">
+          <button class="btn yes" onclick="accepted()">CHO ANH CƠ HỘI ❤️</button>
+          <button class="btn soft" id="thinkBtn" onclick="think()">ĐỂ EM SUY NGHĨ 🥺</button>
+        </div>
+        <p class="tiny" id="thinkText"></p>
+      </div>
+    </section>
+
+    <!-- 5. KẾT -->
+    <section class="screen" id="screen5">
+      <div class="card final-card">
+        <div class="emoji big">🌷</div>
+        <p class="small-title">DÀNH RIÊNG CHO EM • 05/05</p>
+        <h2 id="finalTitle">Anh không cần câu trả lời ngay.</h2>
+        <p class="letter">
+          Anh chỉ muốn em biết rằng có một người đang rất vui vì đã gặp em.
+          Nếu sau hôm nay em cho anh cơ hội, anh sẽ tự mình viết tiếp câu chuyện này.
+        </p>
+        <div class="quote">“Em không cần phải hoàn hảo. Chỉ cần là em thôi, thế là đủ khiến anh rung động rồi.” ❤️</div>
+        <p class="signature">— Một người đang muốn được làm quen với em</p>
+        <button class="btn primary" onclick="restart()">XEM LẠI 💌</button>
+      </div>
+    </section>
+  </main>
+
+  <div class="progress-dots">
+    <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
